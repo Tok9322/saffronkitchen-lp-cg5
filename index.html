@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>サフランキッチン Saffron Kitchen｜インド・ネパール料理｜モダン & スタイリッシュ & エスニック</title>
+  <meta name="description" content="本場のスパイスと窯焼きナン。モダンでスタイリッシュな空間で、インド・ネパールの味を。ランチ・ディナー、テイクアウト・デリバリー対応。" />
+  <meta name="format-detection" content="telephone=no" />
+  <style>
+    :root{
+      --primary:#EC2107;       /* ブランド：鮮やかなレッドオレンジ */
+      --primary-600:#c81d06;
+      --accent:#C6A15B;        /* ゴールドアクセント */
+      --dark:#1b1b1b;
+      --text:#222;
+      --muted:#666;
+      --bg:#fff;
+      --bg-soft:#faf7f2;       /* エスニック紙感の柔らかベージュ */
+      --maxw:1200px;           /* ご希望レイアウト幅 */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --shadow-soft:0 6px 18px rgba(0,0,0,.06);
+      /* 画像はCSSのaspect-ratioで統一 */
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:
+      "Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
+    .btn{
+      display:inline-flex;align-items:center;gap:.6rem;
+      padding:.9rem 1.2rem;border-radius:999px;font-weight:700;letter-spacing:.02em;
+      box-shadow:var(--shadow-soft);transition:.2s ease-in-out;background:var(--primary);color:#fff;border:1px solid transparent
+    }
+    .btn:hover{transform:translateY(-1px);background:var(--primary-600)}
+    .btn.outline{background:#fff;color:var(--primary);border-color:var(--primary)}
+    .tag{display:inline-block;font-size:.78rem;background:linear-gradient(90deg,var(--accent),#e6d2a5);
+      color:#2b2417;padding:.35rem .7rem;border-radius:999px}
+
+    /* ======= ヘッダー ======= */
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.06)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand-mark{width:36px;height:36px;border-radius:10px;background:
+      conic-gradient(from 0deg at 50% 50%, var(--primary), #f98f4b 35%, #ffd8a8 55%, var(--accent) 85%, var(--primary) 100%);
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.6), var(--shadow-soft)}
+    .brand h1{font-size:1.05rem;margin:0;line-height:1.1}
+    .nav-actions{display:flex;align-items:center;gap:.6rem}
+    .nav-links{display:none}
+    @media (min-width:960px){
+      .nav-links{display:flex;gap:1.2rem}
+      .nav-actions{gap:1rem}
+    }
+
+    /* ======= ヒーロー ======= */
+    .hero{
+      position:relative;isolation:isolate;color:#fff
+    }
+    .hero-media{
+      position:absolute;inset:0;z-index:-1;overflow:hidden;border-bottom-left-radius:32px;border-bottom-right-radius:32px
+    }
+    .hero-media::before{
+      content:"";position:absolute;inset:-12% -12%;
+      background:
+        radial-gradient(1200px 600px at 20% 20%, rgba(236,33,7,.35), transparent 70%),
+        radial-gradient(900px 600px at 80% 30%, rgba(198,161,91,.28), transparent 70%),
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+      z-index:2
+    }
+    .hero-media img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.05)}
+    .hero-inner{padding:8rem 0 5rem}
+    .hero h2{font-size:clamp(1.8rem,2.6vw+1rem,3.2rem);margin:.6rem 0 1rem;line-height:1.15}
+    .hero p{max-width:760px;font-size:1.05rem;color:#fff;opacity:.95}
+    .hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+    .hero-badges{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+
+    /* ======= 2カラムイントロ ======= */
+    .intro{padding:3.5rem 0}
+    .grid-2{display:grid;gap:1.6rem}
+    @media (min-width:960px){.grid-2{grid-template-columns:1.2fr 1fr;align-items:center}}
+    .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:1.4rem}
+    .lead{font-size:1.05rem;color:var(--muted)}
+    .list{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.6rem}
+    .list li{display:flex;gap:.6rem;align-items:flex-start}
+    .check{width:22px;height:22px;border-radius:6px;background:var(--primary);display:inline-grid;place-items:center;color:#fff;font-weight:900;font-size:.8rem;flex:0 0 22px}
+
+    /* ======= おすすめメニュー ======= */
+    .section{padding:3.5rem 0}
+    .section-header{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.6rem}
+    .section h3{font-size:1.6rem;margin:0}
+    .menu-grid{display:grid;gap:1rem}
+    @media (min-width:720px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (min-width:1100px){.menu-grid{grid-template-columns:repeat(3,1fr)}}
+    .menu-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-soft);display:flex;flex-direction:column}
+    .menu-img{position:relative;background:#eee;flex:0 0 auto}
+    .menu-img::before{content:"";display:block;padding-top:100%} /* 正方形を確保 */
+    .menu-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .menu-body{padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+    .menu-title{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+    .menu-title h4{margin:0;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+    .menu-body p{margin:.2rem 0 .6rem;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .price{font-weight:800;color:var(--primary)}
+    .chip{display:inline-block;background:var(--bg-soft);padding:.28rem .6rem;border-radius:999px;font-size:.78rem;color:#5b4a2b}
+
+    /* カード高さは自動。画像は1:1で統一 */
+    @media (min-width:1100px){
+      .menu-card{height:auto}
+    }
+    @media (min-width:720px) and (max-width:1099px){
+      .menu-card{height:auto}
+    }
+    @media (max-width:719px){
+      .menu-card{height:auto}
+    }
+
+    /* ======= ランチ/セット ======= */
+    .split{display:grid;gap:1rem}
+    @media (min-width:960px){.split{grid-template-columns:1fr 1fr}}
+    .set{background:linear-gradient(180deg,#fff, #fff8f5);border:1px solid #f2e7e0;border-radius:18px;padding:1.1rem;box-shadow:var(--shadow-soft)}
+    .set h4{margin:.1rem 0 .6rem}
+    .set ul{margin:.6rem 0 0;padding-left:1.1rem;color:#4b4b4b}
+    .save{color:#0a7a3f;font-weight:800}
+
+    /* ======= レビュー ======= */
+    .reviews{background:var(--bg-soft);border-top:1px solid #eee;border-bottom:1px solid #eee}
+    .rev-grid{display:grid;gap:1rem}
+    @media (min-width:960px){.rev-grid{grid-template-columns:repeat(3,1fr)}}
+    .rev{background:#fff;border-radius:18px;padding:1rem;box-shadow:var(--shadow-soft)}
+    .stars{color:#F6B905;font-size:1.05rem;letter-spacing:.08em}
+
+    /* ======= アクセス ======= */
+    .access .map{border:0;width:100%;height:380px;border-radius:18px;box-shadow:var(--shadow)}
+    .info{display:grid;gap:.4rem;margin-top:1rem;color:var(--muted)}
+    .info b{color:var(--text)}
+
+    /* ======= フッター ======= */
+    footer{background:#111;color:#ddd;margin-top:2rem;border-top:4px solid var(--primary)}
+    .footer-inner{padding:2.2rem 0;display:grid;gap:1.2rem}
+    @media (min-width:960px){.footer-inner{grid-template-columns:2fr 1fr 1fr}}
+    .social{display:flex;gap:.6rem;flex-wrap:wrap}
+    .social a{display:inline-flex;align-items:center;gap:.4rem;background:#1e1e1e;border:1px solid #2a2a2a;padding:.5rem .7rem;border-radius:999px;color:#e9e9e9}
+    .copyright{border-top:1px solid #1f1f1f;padding:1rem 0;color:#9a9a9a;text-align:center}
+
+    /* ======= ユーティリティ ======= */
+    .mt-0{margin-top:0}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:1rem}.mt-4{margin-top:1.5rem}
+    .mb-0{margin-bottom:0}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:1rem}.mb-4{margin-bottom:1.5rem}
+    .center{display:flex;justify-content:center;align-items:center}
+    .pill{border:1px dashed #e7d9c8;background:#fffdf8;border-radius:12px;padding:.6rem .8rem;color:#7a5b33}
+    .em{color:var(--primary);font-weight:800}
+  </style>
+
+  <!-- JSON-LD（基本） -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Restaurant",
+    "name":"サフランキッチン Saffron Kitchen",
+    "servesCuisine":["Indian","Nepalese"],
+    "address":{"@type":"PostalAddress","addressCountry":"JP"},
+    "telephone":"+81-00-0000-0000",
+    "priceRange":"¥¥",
+    "acceptsReservations":"True",
+    "sameAs":["https://www.instagram.com/your-restaurant","https://www.facebook.com/your-restaurant"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <h1>サフランキッチン Saffron Kitchen<span style="color:var(--muted);font-weight:600">｜インド・ネパール料理</span></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">当店について</a>
+        <a href="#menu">メニュー</a>
+        <a href="#lunch">ランチ</a>
+        <a href="#access">アクセス</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#reserve" class="btn">予約する</a>
+        <a href="#order" class="btn outline">テイクアウト</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-media">
+      <!-- 背景画像：店舗や料理写真に差替え推奨 -->
+      <img src="images/hero/indian_nepal_hero.jpg" alt="窯焼きナンとスパイスの薫り" />
+    </div>
+    <div class="container hero-inner">
+      <span class="tag">Modern • Stylish • Ethnic</span>
+      <h2>本場のスパイス × 窯焼きナン。<br/>モダンでスタイリッシュな、エスニック体験。</h2>
+      <p>熟練シェフが厳選スパイスを独自にブレンド。高温タンドールで焼き上げるナンは外は香ばしく中はふわもち。ランチは気軽に、ディナーはゆったりと——日常に小さな旅を。</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn">メニューを見る</a>
+        <a href="#reserve" class="btn outline">空席状況・予約</a>
+      </div>
+      <div class="hero-badges">
+        <span class="pill">Uber Eats / 出前館 対応</span>
+        <span class="pill">ベジタリアン / ハラール相談可</span>
+        <span class="pill">お子さま歓迎・テーブル席</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro / About -->
+  <section id="about" class="intro container">
+    <div class="grid-2">
+      <div class="card">
+        <h3 class="mt-0">当店のこだわり</h3>
+        <p class="lead">「香り・彩り・温度」を大切に、できたての一皿を。王道のバターチキンからスパイシーなマトン、香り高いビリヤニまで、気分に合わせて選べるラインアップをご用意しています。</p>
+        <ul class="list">
+          <li><span class="check">✓</span><div><b>直輸入スパイス</b><br><span class="muted">鮮度を保ち、ブレンドは毎日店舗で調整</span></div></li>
+          <li><span class="check">✓</span><div><b>高温タンドール</b><br><span class="muted">外カリ中ふわ、バター香る窯焼きナン</span></div></li>
+          <li><span class="check">✓</span><div><b>モダン空間</b><br><span class="muted">ダークウッド×ゴールドで上質に演出</span></div></li>
+        </ul>
+        <div class="mt-3"><a href="#reserve" class="btn">今すぐ予約</a></div>
+      </div>
+      <div class="card">
+        <img src="images/interior/Interior.jpg" alt="店内の様子（モダンでスタイリッシュ）" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="section container">
+    <div class="section-header">
+      <h3>おすすめメニュー</h3>
+      <a href="#order" class="btn outline">テイクアウト注文</a>
+    </div>
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-img">
+          <img src="images/menu/butter-chicken-curry.jpg" alt="バターチキンカレー" loading="lazy" decoding="async" />
+        </div>
+        <div class="menu-body">
+          <div class="menu-title">
+            <h4 class="mt-0 mb-0">バターチキンカレー</h4>
+            <span class="price">¥1,180</span>
+          </div>
+          <p class="mt-1 mb-2">トマトの酸味とバターのコクが溶け合う定番。辛さ控えめで初めての方にも。</p>
+          <div class="chip">辛さ：甘口〜中辛</div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-img">
+          <img src="images/menu/menu-tandoori.jpg" alt="タンドリーチキン" loading="lazy" decoding="async" />
+        </div>
+        <div class="menu-body">
+          <div class="menu-title">
+            <h4 class="mt-0 mb-0">タンドリーチキン（2pc）</h4>
+            <span class="price">¥980</span>
+          </div>
+          <p class="mt-1 mb-2">自家製ヨーグルトとスパイスにじっくり漬け込み、高温で一気に焼き上げ。</p>
+          <div class="chip">窯焼き</div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-img">
+          <img src="images/menu/menu-biryani.jpg" alt="ビリヤニ" loading="lazy" decoding="async" />
+        </div>
+        <div class="menu-body">
+          <div class="menu-title">
+            <h4 class="mt-0 mb-0">チキン・ビリヤニ</h4>
+            <span class="price">¥1,280</span>
+          </div>
+          <p class="mt-1 mb-2">バスマティ米を香り高く炊き上げた逸品。ライタ（ヨーグルトソース）付き。</p>
+          <div class="chip">スパイス香る</div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-img">
+          <img src="images/menu/garlic-naan.jpg" alt="ガーリックナン" loading="lazy" decoding="async" />
+        </div>
+        <div class="menu-body">
+          <div class="menu-title">
+            <h4 class="mt-0 mb-0">ガーリックナン</h4>
+            <span class="price">¥520</span>
+          </div>
+          <p class="mt-1 mb-2">香ばしいガーリックとバターの余韻。カレーが進む人気の一枚。</p>
+          <div class="chip">焼きたて</div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-img">
+          <img src="images/menu/mutton-curry.jpg" alt="マトンカレー" loading="lazy" decoding="async" />
+        </div>
+        <div class="menu-body">
+          <div class="menu-title">
+            <h4 class="mt-0 mb-0">マトンカレー</h4>
+            <span class="price">¥1,280</span>
+          </div>
+          <p class="mt-1 mb-2">旨味濃厚、スパイスしっかりめ。食べ応えのある大人の味。</p>
+          <div class="chip">辛さ：中辛〜辛口</div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-img">
+          <img src="images/menu/samosa.jpg" alt="サモサ" loading="lazy" decoding="async" />
+        </div>
+        <div class="menu-body">
+          <div class="menu-title">
+            <h4 class="mt-0 mb-0">ベジ・サモサ（2pc）</h4>
+            <span class="price">¥580</span>
+          </div>
+          <p class="mt-1 mb-2">ホクホクのポテトとスパイス。チャツネをつけてどうぞ。</p>
+          <div class="chip">ベジ対応</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Lunch & Sets -->
+  <section id="lunch" class="section container">
+    <div class="section-header">
+      <h3>ランチ & セット</h3>
+      <span class="tag">11:00–15:00 / ご飯・ナンおかわり半額</span>
+    </div>
+    <div class="split">
+      <div class="set">
+        <h4>ランチ A セット <span class="em">¥980</span></h4>
+        <p class="mt-1">選べるカレー1種 / ナン or ライス / サラダ / ドリンク</p>
+        <ul>
+          <li>カレー：バターチキン / ダル / 日替わり</li>
+          <li>ドリンク：ラッシー / チャイ / コーラ 他</li>
+        </ul>
+        <div class="mt-2"><a href="#reserve" class="btn">席を予約</a></div>
+      </div>
+      <div class="set">
+        <h4>ファミリーセット <span class="em">¥3,280</span> <span class="save">（¥600お得）</span></h4>
+        <p class="mt-1">カレー2種 / タンドリーチキン2pc / ガーリックナン / ライス / サラダ / ドリンク2</p>
+        <ul>
+          <li>辛さ：甘口〜激辛まで調整可</li>
+          <li>テイクアウト対応</li>
+        </ul>
+        <div class="mt-2"><a href="#order" class="btn outline">テイクアウト注文</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section reviews">
+    <div class="container">
+      <div class="section-header">
+        <h3>お客様の声</h3>
+        <span class="tag">Google 4.6 ★</span>
+      </div>
+      <div class="rev-grid">
+        <div class="rev">
+          <div class="stars">★★★★★</div>
+          <p class="mt-1">ナンが大きくてふわふわ！バターチキンは子どももお気に入り。家族で通っています。</p>
+          <small class="muted">— K.S.</small>
+        </div>
+        <div class="rev">
+          <div class="stars">★★★★★</div>
+          <p class="mt-1">ランチのコスパが最高。内装がスタイリッシュで、ちょっとした会食にも使えます。</p>
+          <small class="muted">— M.I.</small>
+        </div>
+        <div class="rev">
+          <div class="stars">★★★★☆</div>
+          <p class="mt-1">ビリヤニの香りが良い。辛さ調整もしてくれて大満足。次はマトンに挑戦。</p>
+          <small class="muted">— Y.N.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access -->
+  <section id="access" class="section container access">
+    <div class="section-header">
+      <h3>アクセス・店舗情報</h3>
+      <a id="reserve" href="tel:0000000000" class="btn">電話予約 00-0000-0000</a>
+    </div>
+    <div class="grid-2">
+      <div>
+        <!-- Google Map 埋め込みは実住所に差し替え -->
+        <iframe class="map" loading="lazy" allowfullscreen
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10499.938!2d139.767!3d35.681!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z44CSMTAwLTAwMDE!5e0!3m2!1sja!2sjp!4v0000000000000">
+        </iframe>
+      </div>
+      <div>
+        <div class="info">
+          <div><b>店名</b>：サフランキッチン Saffron Kitchen</div>
+          <div><b>住所</b>：〒000-0000 東京都◯◯区◯◯ 0-0-0</div>
+          <div><b>営業時間</b>：11:00–15:00 / 17:00–22:00（L.O. 21:30）</div>
+          <div><b>定休日</b>：不定休</div>
+          <div><b>席数</b>：テーブル 30 / ベビーチェア有り</div>
+          <div><b>決済</b>：現金 / 各種クレジット / 交通系IC / QR（PayPay等）</div>
+          <div id="order" class="mt-2">
+            <a href="#" class="btn">Uber Eats</a>
+            <a href="#" class="btn outline">出前館</a>
+          </div>
+          <div class="mt-2">
+            <span class="pill">アレルギー表示 / ベジ対応メニューあり</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <h4 class="mt-0">サフランキッチン Saffron Kitchen</h4>
+
+        <p class="mt-1" style="color:#bdbdbd">
+          モダンでスタイリッシュ、だけど温かい。<br/>インド・ネパールの「おいしい」を、毎日に。
+        </p>
+        <div class="social mt-2">
+          <a href="#"><span>Instagram</span></a>
+          <a href="#"><span>Facebook</span></a>
+          <a href="#"><span>Google Map</span></a>
+        </div>
+      </div>
+      <div>
+        <h5 class="mt-0">メニュー</h5>
+        <div class="mt-1" style="color:#bdbdbd">
+          バターチキン / マトン / ビリヤニ / タンドリーチキン / ガーリックナン 他
+        </div>
+      </div>
+      <div>
+        <h5 class="mt-0">ご予約・お問い合わせ</h5>
+        <div class="mt-1">
+          <a href="tel:0000000000" class="btn" style="padding:.6rem 1rem">00-0000-0000</a>
+        </div>
+        <div class="mt-1">
+          <a href="#" class="btn outline" style="padding:.6rem 1rem">Web予約</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">© サフランキッチン Saffron Kitchen. All Rights Reserved.</div>
+  </footer>
+
+</body>
+</html>
